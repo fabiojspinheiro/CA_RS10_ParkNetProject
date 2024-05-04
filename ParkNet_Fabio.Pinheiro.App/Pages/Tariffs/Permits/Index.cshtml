@@ -1,0 +1,48 @@
+﻿@page
+@model ParkNet_Fabio.Pinheiro.App.Pages.Tariffs.Permits.IndexModel
+
+@{
+    ViewData["Title"] = "Tariffs Permits";
+}
+
+<h1>Tariffs Permits</h1>
+
+<p>
+    <a button type="button" class="btn btn-success" asp-page="Create">Create New</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TariffPermit[0].Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TariffPermit[0].Period)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TariffPermit[0].Value)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TariffPermit) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Period)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value)
+            </td>
+            <td>
+                <a button type="button" class="btn btn-primary btn-sm" asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
+                <a button type="button" class="btn btn-primary btn-sm" asp-page="./Details" asp-route-id="@item.Id">Details</a>
+                <a button type="button" class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

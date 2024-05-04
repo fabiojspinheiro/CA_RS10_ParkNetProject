@@ -1,0 +1,36 @@
+﻿@page
+@model ParkNet_Fabio.Pinheiro.App.Pages.UserTransactions.DepositMoneyModel
+
+@{
+    ViewData["Title"] = "Add Money";
+}
+
+<h1>Deposit Money</h1>
+
+<h4>Transactions</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Transactions.Value" class="control-label"></label>
+                <input asp-for="Transactions.Value" class="form-control" />
+                <span asp-validation-for="Transactions.Value" class="text-danger"></span>
+            </div>
+            <br />
+            <div>
+                <td>
+                    <input type="submit" value="Deposit" class="btn btn-success" />
+                    <a class="btn btn-light" asp-page="./Index">Back to List</a>
+                </td>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

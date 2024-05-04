@@ -1,0 +1,43 @@
+﻿@page
+@model ParkNet_Fabio.Pinheiro.App.Pages.Tariffs.Permits.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>TariffPermit</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TariffPermit.TypeId" class="control-label">Vehicle Type</label>
+                <select asp-for="TariffPermit.TypeId" class ="form-control" asp-items="ViewBag.TypeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TariffPermit.Period" class="control-label "></label>
+                <select asp-for="TariffPermit.Period" asp-items="@Model.Period" class="form-select" aria-label="Default select example"></select>
+                <span asp-validation-for="TariffPermit.Period" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TariffPermit.Value" class="control-label"></label>
+                <input asp-for="TariffPermit.Value" class="form-control" type="number" />
+                <span asp-validation-for="TariffPermit.Value" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

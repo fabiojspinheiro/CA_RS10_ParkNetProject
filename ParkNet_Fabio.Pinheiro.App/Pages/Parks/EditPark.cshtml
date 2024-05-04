@@ -1,0 +1,47 @@
+﻿@page
+@model ParkNet_Fabio.Pinheiro.App.Pages.Parks.EditParkModel
+
+@{
+    ViewData["Title"] = "Edit Park";
+}
+
+<h1>Edit Park</h1>
+
+<h4>Park</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Park.Id" />
+            <div class="form-group">
+                <label asp-for="Park.Name" class="control-label"></label>
+                <input asp-for="Park.Name" class="form-control" />
+                <span asp-validation-for="Park.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Park.Description" class="control-label"></label>
+                <input asp-for="Park.Description" class="form-control" />
+                <span asp-validation-for="Park.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Park.Address" class="control-label"></label>
+                <input asp-for="Park.Address" class="form-control" />
+                <span asp-validation-for="Park.Address" class="text-danger"></span>
+            </div>
+            <br />
+            <div>
+                <td>
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                    <a class="btn btn-light" asp-page="./ShowParks">Back to List</a>
+                </td>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

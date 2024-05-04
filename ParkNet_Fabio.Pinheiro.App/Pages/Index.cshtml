@@ -1,0 +1,18 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    string userName = "";
+}
+
+<div class="text-center">
+        @if(User.Identity.IsAuthenticated)
+        {
+            var names = User.Identity.Name.Split("@");
+            string name = names[0];
+            userName = char.ToUpper(name[0]) + name.Substring(1);
+        }   
+    <h1 class="display-4">Welcome @if (userName != "") { @userName }</h1>
+
+        <img src="/Park Net.png" alt="Logo Park Net" width="90%" />
+</div>

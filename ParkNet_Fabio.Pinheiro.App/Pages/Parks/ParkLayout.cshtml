@@ -1,0 +1,64 @@
+﻿@page
+@model ParkNet_Fabio.Pinheiro.App.Pages.Parks.ParkLayoutModel
+@{
+    ViewData["Title"] = Model.Park.Name;
+}
+<h1>@Model.Park.Name</h1>
+<hr />
+
+@{
+    int spaceCount = 0;
+    for (int i = 0; i < Model.Floors.Count; i++)                // Floors
+    {
+        <h4>Floor @(i + 1) </h4>
+        <table>
+            @foreach (var space in Model.Floors[i].Spaces)      // Lines
+            {
+                <tr>
+                    @for (int j = 0; j < space.Length; j++)     // Park Spaces
+                    {
+                        if (space[j] == 'C')
+                        {
+                            <td>
+                                <figure>
+                                    <img src="/car.png" alt="Car" width="24" height="24">
+                                    <figcaption>@(Model.Spaces[spaceCount++].Name + " ")</figcaption>
+                                </figure>
+                            </td>
+                        }
+                        else if (space[j] == 'M')
+                        {
+                            <td>
+                                <figure>
+                                    <img src="/motorcycle.png" alt="Motorcycle" width="24" height="24">
+                                    <figcaption>@(Model.Spaces[spaceCount++].Name + " ")</figcaption>
+                                </figure>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                <figure>
+                                    <img src="/white.png" alt="white" width="24" height="24">
+                                    <figcaption>    </figcaption>
+                                </figure>
+                            </td>
+                        }
+                    }
+                </tr>
+            }
+        </table>
+    }
+
+    if (User.IsInRole("User"))
+    {
+        <td>
+            <a button type="button" class="btn btn-primary" asp-page="/Permits/Create" asp-route-id="@Model.Park.Id">Buy Permit</a>
+            <a button type="button" class="btn btn-primary" asp-page="/Tickets/Create" asp-route-id="@Model.Park.Id">Buy Ticket</a>
+        </td>
+    }
+}
+
+<td>
+    <a button type="button" class="btn btn-light" asp-page="./ShowParks" asp-route-id="@Model.Park.Id">Back to List</a>
+</td>

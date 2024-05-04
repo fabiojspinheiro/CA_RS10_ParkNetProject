@@ -1,0 +1,106 @@
+﻿@page
+@model ParkNet_Fabio.Pinheiro.App.Pages.UserActivity.HistoryModel
+@{
+}
+
+<div class="col-xs-6">
+    <h2 class="sub-header">Permits</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="col-md-1">
+                        License Plate
+                    </th>
+                    <th class="col-md-2">
+                        @Html.DisplayNameFor(model => model.Permit[0].Park)
+                    </th>
+                    <th class="col-md-3">
+                        @Html.DisplayNameFor(model => model.Permit[0].Period)
+                    </th>
+                    <th class="col-md-4">
+                        @Html.DisplayNameFor(model => model.Permit[0].Start)
+                    </th>
+                    <th class="col-md-5">
+                        @Html.DisplayNameFor(model => model.Permit[0].End)
+                    </th>
+                    <th class="col-md-6">
+                        @Html.DisplayNameFor(model => model.Permit[0].Value)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Permit)
+                {
+                    <tr>
+                        <td class="col-md-1">
+                            @Html.DisplayFor(modelItem => item.LicensePlate)
+                        </td>
+                        <td class="col-md-2">
+                            @Html.DisplayFor(modelItem => item.Park)
+                        </td>
+                        <td class="col-md-3">
+                            @Html.DisplayFor(modelItem => item.Period)
+                        </td>
+                        <td class="col-md-4">
+                            @Html.DisplayFor(modelItem => item.Start)
+                        </td>
+                        <td class="col-md-5">
+                            @Html.DisplayFor(modelItem => item.End)
+                        </td>
+                        <td class="col-md-6">
+                            @Html.DisplayFor(modelItem => item.Value)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <h2 class="sub-header">Tickets</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="col-md-1">
+                        License Plate
+                    </th>
+                    <th class="col-md-2">
+                        @Html.DisplayNameFor(model => model.Ticket[0].Park)
+                    </th>
+                    <th class="col-md-3">
+                        Start Date
+                    </th>
+                    <th class="col-md-4">
+                        End Date
+                    </th>
+                    <th class="col-md-5">
+                        @Html.DisplayNameFor(model => model.Ticket[0].Value)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Ticket)
+                {
+                    <tr>
+                        <td class="col-md-1">
+                            @Html.DisplayFor(modelItem => item.LicensePlate)
+                        </td>
+                        <td class="col-md-2">
+                            @Html.DisplayFor(modelItem => item.Park)
+                        </td>
+                        <td class="col-md-3">
+                            @Html.DisplayFor(modelItem => item.Start)
+                        </td>
+                        <td class="col-md-4">
+                            @Html.DisplayFor(modelItem => item.End)
+                        </td>
+                        <td class="col-md-5">
+                            @Html.DisplayFor(modelItem => item.Value)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

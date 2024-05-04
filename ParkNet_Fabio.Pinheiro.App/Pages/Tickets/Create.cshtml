@@ -1,0 +1,40 @@
+﻿@page
+@model ParkNet_Fabio.Pinheiro.App.Pages.Tickets.CreateModel
+
+@{
+    ViewData["Title"] = "Buy Ticket";
+}
+
+<h1>Buy Ticket</h1>
+
+<h4>Ticket</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Ticket.VehicleId" class="control-label">Vehicle</label>
+                <select asp-for="Ticket.VehicleId" class="form-control" asp-items="ViewBag.VehicleId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ticket.ParkingSpaceId" class="control-label">Parking Space</label>
+                <select asp-for="Ticket.ParkingSpaceId" class="form-control" asp-items="ViewBag.ParkingSpaceId"></select>
+            </div>
+            <br />
+            <div>
+                <td>
+                    <input type="submit" value="Buy" class="btn btn-primary" />
+                    <a class="btn btn-light" asp-page="/Parks/ShowParks">Back to Parks</a>
+                </td>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

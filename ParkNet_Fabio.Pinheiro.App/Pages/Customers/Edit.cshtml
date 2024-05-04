@@ -1,0 +1,58 @@
+﻿@page
+@model ParkNet_Fabio.Pinheiro.App.Pages.Customers.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Customer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Customer.Id" />
+            <input type="hidden" asp-for="Customer.UserId" />
+            <div class="row">
+                <div class="col">
+                    <label asp-for="Customer.DLN" class="control-label">Driver License Number</label>
+                    <input asp-for="Customer.DLN" class="form-control" />
+                    <span asp-validation-for="Customer.DLN" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="Customer.DLNExpDate" class="control-label">Expire Date</label>
+                    <input asp-for="Customer.DLNExpDate" class="form-control" />
+                    <span asp-validation-for="Customer.DLNExpDate" class="text-danger"></span>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col">
+                    <label asp-for="Customer.CreditCard" class="control-label">Credit Card Number</label>
+                    <input asp-for="Customer.CreditCard" class="form-control" />
+                    <span asp-validation-for="Customer.CreditCard" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="Customer.CreditCardExpDate" class="control-label">Expire Date</label>
+                    <input asp-for="Customer.CreditCardExpDate" class="form-control" />
+                    <span asp-validation-for="Customer.CreditCardExpDate" class="text-danger"></span>
+                </div>
+            </div>
+            <br />
+            <div>
+                <td>
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                    <a button type="button" class="btn btn-light" asp-page="/Index">Back </a>
+                </td>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
